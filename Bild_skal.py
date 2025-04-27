@@ -18,7 +18,7 @@ def bild_zeigen():
     breite = int(Eingabe1.get())
     höhe = int(Eingabe2.get())
     
-    #neue_bild = Image.open("hier kommt die bild datei rein, am besten jpg format, erstmals") # bild öffnen 
+    neue_bild = Image.open("hier kommt die bild datei rein, am besten jpg format, erstmals") # bild öffnen 
     neue_bild = neue_bild.resize((breite, höhe)) #bild skalieren
     
     tk_img = ImageTk.PhotoImage(neue_bild) #für tkinter kompatibel machen und in neue var packen
