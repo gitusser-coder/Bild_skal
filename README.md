@@ -2,7 +2,7 @@ Hier kannst du Bilddateien beliebig über die tkinter Oberfläche skalieren.
 
 Achtung: Prototyp
 
-Ich weiß der Code ist sehr unsauber und ich wollte aber erstmal dass es läuft. Halbwegs. 
+Ich weiß der Code ist sehr unsauber und ich wollte aber erstmal dass es läuft.
 
 In Zukunft bin ich trotzdessen für Verbesserungsvorschläge oder Aufklärungsarbeit sehr dankbar. Ich befinde ich am Anfang meiner Entwickler-Karriere.
 
