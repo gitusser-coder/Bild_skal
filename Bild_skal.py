@@ -14,11 +14,13 @@ def bild_zeigen():
     global höhe 
     global Label1
     global tk_img
-
+    global Label1
     breite = int(Eingabe1.get())
     höhe = int(Eingabe2.get())
     
-    neue_bild = Image.open("hier kommt die bild datei rein, am besten jpg format, erstmals") # bild öffnen 
+  
+    neue_bild = Image.open(Auswahl) # bild öffnen 
+   
     neue_bild = neue_bild.resize((breite, höhe)) #bild skalieren
     
     tk_img = ImageTk.PhotoImage(neue_bild) #für tkinter kompatibel machen und in neue var packen
@@ -46,23 +48,22 @@ def speichern():
     except Exception as e:
         print(f"Fehler beim speichern: {e}")
 
-
-# erstmal ignorieren
-"""
 def Datei():
+    global Auswahl
     try:
         
-        Auswahl = filedialog.askopenfile(title="Bild auswählen", filetypes=[("Bilddateien", "*.jpg *.png")]
+        Auswahl = filedialog.askopenfilename(title="Bild auswählen", filetypes=[("Bilddateien", "*.jpg *.png")]
                                          
                                          )
-        if Auswahl.empty == False:
-            img = Image.open(Auswahl)
+        if Auswahl:
+            bild = Image.open(Auswahl)
+            tk_img = ImageTk.PhotoImage(bild)
             Label1.configure(image=tk_img)
             Label1.image = tk_img 
-        else: print(info)   # eventinfo unten  abgespeichert     
+        else: print("Datei hochladen")   # eventinfo unten  abgespeichert     
 
     except Exception as e: print(f"Fehler: {e}")
-"""
+
 
 skal = tk.Tk()
 
@@ -77,7 +78,7 @@ frm.grid()
 Label(skal, text="Bitte geben Sie die breite an").grid(column=0, row=1)
 Label(skal, text="Bitte geben Sie die Höhe an").grid(column=0, row=2)
 Label(skal, text="Dateiname:").grid(column=0, row=3)
-#info = Label.event_info.(skal, ).grid(column=0, row=3) # ignorieren
+#info = Label.event_info.(skal, ).grid(column=0, row=3)
 
 speichern1 = ttk.Button(frm, text="speichern", command=speichern)
 speichern1.grid(column=0, row=3)
@@ -95,8 +96,8 @@ button2 = ttk.Button(frm, text="beenden", command=skal.destroy)
 button1.grid(column=2, row=4)
 button2.grid(column=3, row=4)
 
-Auswahl = ttk.Button(frm, text="Datei auswählen", command=Datei)
-Auswahl.grid(column=0, row=6)
+file = ttk.Button(frm, text="Datei auswählen", command=Datei)
+file.grid(column=0, row=6)
 
 
 skal.mainloop()
